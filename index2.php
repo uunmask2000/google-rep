@@ -11,11 +11,14 @@
                 document.getElementById('g-recaptcha-response').value = token;
             });
     });
+
+    function myFunction() {
+        document.getElementById("myForm").submit();
+    }
 </script>
 
 
-<form id="form_id" method="post" action="your_action.php">
+<form id="form_id" method="post" action="checkphp.php">
     <input type="text" readonly="readonly" id="g-recaptcha-response" name="g-recaptcha-response">
     <input type="text" readonly="readonly" name="action" value="validate_captcha">
-
-</form>
+    <input type="button" onclick="myFunction()" </form>
