@@ -28,8 +28,8 @@ if (!$captcha) {
 //... Add code to filter access using $response . score
 if ($response->success == true && $response->score <= 0.5) {
     //Do something to denied access
-    echo '不通过验证';
-} else {
     echo '通过验证';
+} else {
+    echo '不通过验证';
 
 }
