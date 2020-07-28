@@ -1,35 +1,25 @@
 <html>
   <head>
-  <script>
-    function onSubmit(token) {
-      alert('thanks ' + document.getElementById('field').value);
-    }
+    <title>reCAPTCHA demo: Explicit render after an onload callback</title>
+    <script>
+        var onSubmit = function(token) {
+          console.log('success!');
+        };
 
-    function validate(event) {
-      event.preventDefault();
-      if (!document.getElementById('field').value) {
-        alert("You must add text to the required field");
-      } else {
-        grecaptcha.execute();
-      }
-    }
-
-    function onload() {
-      var element = document.getElementById('submit');
-      element.onclick = validate;
-    }
-  </script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        var onloadCallback = function() {
+          grecaptcha.render('submit', {
+            'sitekey' : '6LdDH7cZAAAAABNFfHrFAZrr8gJOAIvIPSNShRh1',
+            'callback' : onSubmit
+          });
+        };
+    </script>
   </head>
   <body>
-    <form>
-      Name: (required) <input id="field" name="field">
-      <div id='recaptcha' class="g-recaptcha"
-          data-sitekey="6LdDH7cZAAAAAE-qM16dpN6E2Jx431SwNmv3w6sX"
-          data-callback="onSubmit"
-          data-size="invisible"></div>
-      <button id='submit'>submit</button>
+    <form action="?" method="POST">
+      <input id='submit' type="submit" value="Submit">
     </form>
-    <script>onload();</script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
   </body>
 </html>
