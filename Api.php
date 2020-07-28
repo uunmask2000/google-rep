@@ -38,7 +38,7 @@ $class = new Google_Recaptcha();
 $response = $class->result($captcha);
 print_r($response );
  
-if ($response->success == true) {
+if ($response->success == true && $response->score <= 0.5) {
     echo 'OK';
 } 
 
