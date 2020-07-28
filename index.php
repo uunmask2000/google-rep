@@ -1,25 +1,31 @@
-<html>
-  <head>
-    <title>reCAPTCHA demo: Explicit render after an onload callback</title>
-    <script>
-        var onSubmit = function(token) {
-          console.log('success!');
-        };
-
-        var onloadCallback = function() {
-          grecaptcha.render('submit', {
-            'sitekey' : '6LdDH7cZAAAAABNFfHrFAZrr8gJOAIvIPSNShRh1',
-            'callback' : onSubmit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script src="https://www.google.com/recaptcha/api.js"></script>
+     <script src="https://www.google.com/recaptcha/api.js?render=6Le9H7cZAAAAAMsQkeG_pnJxtlBhv9hlEzsUjB13"></script>
+     <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }
+ </script>
+  <script>
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6Le9H7cZAAAAAMsQkeG_pnJxtlBhv9hlEzsUjB13', {action: 'submit'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
           });
-        };
-    </script>
-  </head>
-  <body>
-    <form action="?" method="POST">
-      <input id='submit' type="submit" value="Submit">
-    </form>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-        async defer>
-    </script>
-  </body>
+        });
+      }
+  </script>
+</head>
+<body>
+    <button class="g-recaptcha"
+        data-sitekey="6Le9H7cZAAAAAMsQkeG_pnJxtlBhv9hlEzsUjB13"
+        data-callback='onSubmit'
+        data-action='submit'>Submit</button>
+</body>
 </html>
