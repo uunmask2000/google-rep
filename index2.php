@@ -21,4 +21,4 @@
 <form id="form_id" method="post" action="checkphp.php">
     <input type="text" readonly="readonly" id="g-recaptcha-response" name="g-recaptcha-response">
     <input type="text" readonly="readonly" name="action" value="validate_captcha">
-    <input type="button" onclick="myFunction()" </form>
+    <input type="button" onclick="myFunction()" value="send"> </form>

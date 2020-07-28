@@ -10,7 +10,7 @@ print_r($_POST);
 if (!$captcha) {
     //Do something with error
 } else {
-    $secret = '6LfrJLcZAAAAADXGDWfjsEO7HjnuabjT5eQzTVNs';
+    $secret = '6LfrJLcZAAAAAJJ5a-YfsAg_arWfg0xcsBtQjlZV';
     $response = file_get_contents(
         "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret . "&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']
     );
