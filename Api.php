@@ -33,20 +33,22 @@ if (isset($_POST['recaptcha'])) {
 } else {
     $captcha = false;
 }
- 
+
 $class = new Google_Recaptcha();
 $response = $class->result($captcha);
- 
 
 if ($response->success === false) {
-    $res = false;
-} 
-if ($response->success == true && $response->score <= 0.5) {
-    //Do something to denied access
-    $res = true;
-} else {
+    echo '1';
     $res = false;
 }
-echo $res ? 1 : 0; 
+if ($response->success == true && $response->score <= 0.5) {
+    //Do something to denied access
+    echo '2';
+
+    $res = true;
+} else {
+    echo '3';
+    $res = false;
+}
 
 return;
