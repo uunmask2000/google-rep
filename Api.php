@@ -4,7 +4,7 @@ class Google_Recaptcha
 
     // V3
     const secret = '6LfrJLcZAAAAAJJ5a-YfsAg_arWfg0xcsBtQjlZV';
-    const api_host = 'https: //www.google.com/recaptcha/api/siteverify?s';
+    const api_host = 'https://www.google.com/recaptcha/api/siteverify?s';
 
     public function _construct()
     {
