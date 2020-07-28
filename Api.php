@@ -36,11 +36,11 @@ if (isset($_POST['recaptcha'])) {
 
 $class = new Google_Recaptcha();
 $response = $class->result($captcha);
-echo ($response->score * 10) ; 
-if ($response->success === false || ($response->score * 10) < 50) {
-    echo '2';
-} else {
+
+if ($response->success == true && $response->score <= 0.5) {
     echo '1';
+} else {
+    echo '2';
 }
 
 return;
