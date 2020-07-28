@@ -36,6 +36,7 @@ if (isset($_POST['recaptcha'])) {
 
 $class = new Google_Recaptcha();
 $response = $class->result($captcha);
+print_r($response );
 
 if ($response->success === false) {
     echo '1';
