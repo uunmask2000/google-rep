@@ -25,25 +25,18 @@
       };
     </script>
 <!-- ---------------------------- -->
-    <script>
-    function onSubmit(token) {
-      alert('thanks ' + document.getElementById('field').value);
-    }
+  <script>
+        var onSubmit = function(token) {
+          console.log('success!');
+        };
 
-    function validate(event) {
-      event.preventDefault();
-      if (!document.getElementById('field').value) {
-        alert("You must add text to the required field");
-      } else {
-        grecaptcha.execute();
-      }
-    }
-
-    function onload() {
-      var element = document.getElementById('submit');
-      element.onclick = validate;
-    }
-  </script>
+        var onloadCallback = function() {
+          grecaptcha.render('submit', {
+            'sitekey' : '6LdwI7cZAAAAAC7Vjqy83zMisAZh-ELXKMj188Az',
+            'callback' : onSubmit
+          });
+        };
+    </script>
   </head>
   <body>
     <!-- The g-recaptcha-response string displays in an alert message upon submit. -->
@@ -71,17 +64,9 @@
     </script>
 
 <!-- ---------------------------- -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
- <form>
-      Name: (required) <input id="field" name="field">
-      <div id='recaptcha' class="g-recaptcha"
-          data-sitekey="6LdwI7cZAAAAAC7Vjqy83zMisAZh-ELXKMj188Az"
-          data-callback="onSubmit"
-          data-size="invisible"></div>
-      <button id='submit'>submit</button>
-    </form>
-    <script>onload();</script>
-
+    <form action="?" method="POST">
+        <input id='submit' type="submit" value="Submit">
+    </form> 
 
 
   </body>
