@@ -1,25 +1,28 @@
 <html>
-  <head>
+
+<head>
     <title>reCAPTCHA demo: Explicit render after an onload callback</title>
     <script>
-        var onSubmit = function(token) {
-          console.log('success!');
+        var onSubmit = function (token) {
+            console.log(token);
+            console.log('success!');
         };
 
-        var onloadCallback = function() {
-          grecaptcha.render('submit', {
-            'sitekey' : '6LdwI7cZAAAAAC7Vjqy83zMisAZh-ELXKMj188Az',
-            'callback' : onSubmit
-          });
+        var onloadCallback = function () {
+            grecaptcha.render('submit', {
+                'sitekey': '6LdwI7cZAAAAAC7Vjqy83zMisAZh-ELXKMj188Az',
+                'callback': onSubmit
+            });
         };
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
     <form action="?" method="POST">
-      <input id='submit' type="submit" value="Submit">
+        <input id='submit' type="submit" value="Submit">
     </form>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-        async defer>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
     </script>
-  </body>
+</body>
+
 </html>
