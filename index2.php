@@ -13,7 +13,7 @@
     });
 
     function myFunction() {
-        document.getElementById("myForm").submit();
+        document.getElementById("form_id").submit();
     }
 </script>
 
