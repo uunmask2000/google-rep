@@ -17,6 +17,8 @@ if (!$captcha) {
     // use json_decode to extract json response
     $response = json_decode($response);
 
+    print_r($response);
+
     if ($response->success === false) {
         //Do something with error
     }
