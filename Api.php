@@ -41,6 +41,8 @@ if ($response->success == true && $response->score <= 0.5) {
     echo '1';
 } else {
     echo '2';
+    echo '<pre>' ;
+    print_r($response);
 }
 
 return;
