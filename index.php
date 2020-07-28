@@ -25,7 +25,7 @@
     <form>
       Name: (required) <input id="field" name="field">
       <div id='recaptcha' class="g-recaptcha"
-          data-sitekey="_your_site_key_"
+          data-sitekey="6LdDH7cZAAAAAE-qM16dpN6E2Jx431SwNmv3w6sX"
           data-callback="onSubmit"
           data-size="invisible"></div>
       <button id='submit'>submit</button>
