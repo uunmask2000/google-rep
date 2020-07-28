@@ -15,10 +15,16 @@
     function myFunction() {
         document.getElementById("form_id").submit();
     }
+
+    function check_google() {
+       var recaptcha = document.getElementById("g-recaptcha-response").value;
+       alert(recaptcha);
+    }
 </script>
 
 
 <form id="form_id" method="post" action="checkphp.php">
     <input type="text" readonly="readonly" id="g-recaptcha-response" name="g-recaptcha-response">
     <input type="text" readonly="readonly" name="action" value="validate_captcha">
+    <input type="button" onclick="check_google()" value="send">
     <input type="button" onclick="myFunction()" value="send"> </form>
