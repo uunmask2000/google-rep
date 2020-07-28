@@ -34,10 +34,13 @@ if (isset($_POST['recaptcha'])) {
 } else {
     $captcha = false;
 }
+var_dump($captcha);
 
 $class = new Google_Recaptcha();
 $response = $class->result($captcha);
 $res = false;
+var_dump($response);
+
 if ($response->success === false) {
     $res = false;
 } else if ($response->success == true && $response->score <= 0.5) {
