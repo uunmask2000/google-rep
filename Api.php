@@ -1,40 +1,38 @@
 <?php
 class Google_recaptcha_v3
 {
-    private $captcha;
+
     const secret = '6LfrJLcZAAAAAJJ5a-YfsAg_arWfg0xcsBtQjlZV';
     const api_host = 'https: //www.google.com/recaptcha/api/siteverify?s';
 
-    public function _construct($params)
+    public function _construct()
     {
-        $this->captcha = $params['g-recaptcha-response'];
+
     }
 
-    public function get_Google_recaptcha_v3()
+    public function get_Google_recaptcha_v3($captcha = "")
     {
 
-        echo    $this->captcha  ;
-        // $url = self::api_host;
-        // $secret = self::secret;
+        $url = self::api_host;
+        $secret = self::secret;
 
-        // $url .= "?secret=" . $secret . "&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR'];
+        $url .= "?secret=" . $secret . "&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR'];
 
-        // $response = file_get_contents($url);
+        $response = file_get_contents($url);
         // // use json_decode to extract json response
-        // $response = json_decode($response);
+        $response = json_decode($response);
 
-        // return $response;
+        return $response;
 
     }
 }
 
 echo '<pre>';
-$params['g-recaptcha-response'] = '03AGdBq26gVGDA8X_xa-HegSHU3nlC7CUn3oB-SmaurfcbQuwlg7Tl8hzycQr0TgWDtmnyCo5_MAcZnZxvDDcO_khRJs6EbaVS_HZDXD2ufLpKFPrude6l7vVvcMeCzrQQNdGx3VB1veP6shaMoiwBjinKHyEG4_iUOWWyzdrHMptk63JBc6KvC7xeML5lSB0XNtrkk4zpeI9yCgpEWFE3AmrRXNfxCB88nRIvQNGdK_SQOKnMxOuVU--4Ot4Fm39b7evslgX53jJkydMRTFjRiAKluYEFDxES5Z8a5obeWtaogkVxEZHoCeeLZpVPp45zE1TCWXytCyr1-46ha84ir-AI8qBrTTpOUVmTu1ZGL7oEPgQl_YVoVSiNfQAP4bkP6uQgCbuuYND5_xQcB3eXPv3Ec8VOGshtwkciBVQFSwdimyTZws1cGek'; 
+$captcha = '03AGdBq26gVGDA8X_xa-HegSHU3nlC7CUn3oB-SmaurfcbQuwlg7Tl8hzycQr0TgWDtmnyCo5_MAcZnZxvDDcO_khRJs6EbaVS_HZDXD2ufLpKFPrude6l7vVvcMeCzrQQNdGx3VB1veP6shaMoiwBjinKHyEG4_iUOWWyzdrHMptk63JBc6KvC7xeML5lSB0XNtrkk4zpeI9yCgpEWFE3AmrRXNfxCB88nRIvQNGdK_SQOKnMxOuVU--4Ot4Fm39b7evslgX53jJkydMRTFjRiAKluYEFDxES5Z8a5obeWtaogkVxEZHoCeeLZpVPp45zE1TCWXytCyr1-46ha84ir-AI8qBrTTpOUVmTu1ZGL7oEPgQl_YVoVSiNfQAP4bkP6uQgCbuuYND5_xQcB3eXPv3Ec8VOGshtwkciBVQFSwdimyTZws1cGek';
 print_r($params);
-$Google_recaptcha_v3 = new Google_recaptcha_v3($params);
-$response = $Google_recaptcha_v3->get_Google_recaptcha_v3();
+$Google_recaptcha_v3 = new Google_recaptcha_v3();
+$response = $Google_recaptcha_v3->get_Google_recaptcha_v3($captcha);
 print_r($response);
-
 
 // if (isset($_POST['g-recaptcha-response'])) {
 //     $captcha = $_POST['g-recaptcha-response'];
