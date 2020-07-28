@@ -28,7 +28,11 @@ class Google_Recaptcha
     }
 }
 
- 
+if (isset($_POST['recaptcha'])) {
+    $captcha = $_POST['recaptcha'];
+} else {
+    $captcha = false;
+}
 
 $class = new Google_Recaptcha();
 $response = $class->result($captcha);
