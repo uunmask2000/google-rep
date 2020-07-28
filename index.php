@@ -34,8 +34,8 @@
 </script>
 
 
-<form id="form_id" method="post" action="checkphp.php">
-    <input type="text" readonly="readonly" id="recaptcha" name="recaptcha">
-    <input type="text" readonly="readonly" name="action" value="validate_captcha">
-    <input type="button" onclick="check_google()" value="check_google">
-    <input type="button" onclick="myFunction()" value="send"> </form>
+<form id="form_id" method="post" action="Api.php">
+    <input type="hidden" readonly="readonly" id="recaptcha" name="recaptcha">
+    <input type="hidden" readonly="readonly" name="action" value="validate_captcha">  
+    <input type="button" onclick="myFunction()" value="验证+注册">
+</form>
