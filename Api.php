@@ -46,5 +46,5 @@ if ($response->success === false) {
 } else {
     $res = false;
 }
-echo $res;
+var_dump($res);
 return;
