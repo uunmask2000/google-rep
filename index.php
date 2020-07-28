@@ -8,7 +8,7 @@
             })
             .then(function (token) {
                 // add token value to form
-                document.getElementById('g-recaptcha-response').value = token;
+                document.getElementById('recaptcha').value = token;
             });
     });
 
@@ -17,14 +17,24 @@
     }
 
     function check_google() {
-       var recaptcha = document.getElementById("g-recaptcha-response").value;
-       alert(recaptcha);
+        var recaptcha = document.getElementById("recaptcha").value;
+        $.ajax({
+            type: "POST",
+            url: '/Api.php',
+            data: {
+                recaptcha: recaptcha
+            }, // serializes the form's elements.
+            success: function (data) {
+                console.log(data);
+            }
+        });
+
     }
 </script>
 
 
 <form id="form_id" method="post" action="checkphp.php">
-    <input type="text" readonly="readonly" id="g-recaptcha-response" name="g-recaptcha-response">
+    <input type="text" readonly="readonly" id="recaptcha" name="recaptcha">
     <input type="text" readonly="readonly" name="action" value="validate_captcha">
-    <input type="button" onclick="check_google()" value="send">
+    <input type="button" onclick="check_google()" value="check_google">
     <input type="button" onclick="myFunction()" value="send"> </form>
