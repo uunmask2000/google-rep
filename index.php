@@ -24,19 +24,6 @@
         });
       };
     </script>
-<!-- ---------------------------- -->
-  <script>
-        var onSubmit = function(token) {
-          console.log('success!');
-        };
-
-        var onloadCallback = function() {
-          grecaptcha.render('submit', {
-            'sitekey' : '6LdwI7cZAAAAAC7Vjqy83zMisAZh-ELXKMj188Az',
-            'callback' : onSubmit
-          });
-        };
-    </script>
   </head>
   <body>
     <!-- The g-recaptcha-response string displays in an alert message upon submit. -->
@@ -63,10 +50,7 @@
         async defer>
     </script>
 
-<!-- ---------------------------- -->
-    <form action="?" method="POST">
-        <input id='submit' type="submit" value="Submit">
-    </form> 
+
 
 
   </body>
